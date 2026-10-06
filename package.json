@@ -1,5 +1,5 @@
 {
-  "name": "@webprodigies/flute",
+  "name": "@cybertronayush/insight",
   "version": "0.1.2",
   "type": "module",
   "scripts": {
@@ -100,13 +100,13 @@
     "name": "cybertronayush",
     "url": "https://www.getclientell.com/"
   },
-  "homepage": "https://github.com/cybertronayush/flute#readme",
+  "homepage": "https://github.com/cybertronayush/insight#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cybertronayush/flute.git"
+    "url": "git+https://github.com/cybertronayush/insight.git"
   },
   "bugs": {
-    "url": "https://github.com/cybertronayush/flute/issues"
+    "url": "https://github.com/cybertronayush/insight/issues"
   },
   "sideEffects": [
     "./dist/cli/flute.js"

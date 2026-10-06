@@ -106,7 +106,7 @@ All tests run locally. GitHub Actions only builds and publishes a new npm versio
 3. Commit the verified version and lockfile, then push to `main`. The publishing workflow checks npm first. If that version already exists, it stops before installing or building. Otherwise it runs `npm run build:package` and publishes through OIDC. npm versions are immutable; changing source without a version bump does not update the public package.
 4. Run `npm run test:published` locally after publication to check the exact public version in a fresh installed app.
 
-The public source is [cybertronayush/flute](https://github.com/cybertronayush/flute), and the package is `@webprodigies/flute`. npm's trusted publisher uses GitHub owner `cybertronayush`, repository `flute`, workflow `publish.yml`, environment `npm`, with direct `npm publish` permission. The GitHub environment permits the `main` branch. Never commit npm tokens.
+The public source is [cybertronayush/insight](https://github.com/cybertronayush/insight), and the package is `@webprodigies/flute`. npm's trusted publisher uses GitHub owner `cybertronayush`, repository `insight`, workflow `publish.yml`, environment `npm`, with direct `npm publish` permission. The GitHub environment permits the `main` branch. Never commit npm tokens.
 
 Code-only and documentation-only pushes do not start a workflow. Package/lockfile or publishing-workflow changes can trigger the small version lookup. A failed release can be retried through Actions → Publish npm package → Run workflow on `main`; an existing npm version will safely skip. There is no automatic tag-based or pull-request test workflow.
 
