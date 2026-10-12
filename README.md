@@ -1,9 +1,3 @@
-# Insight by [cybertronayush](https://www.getclientell.com/)
-
-Cinematic 3D scenes made from your **real React UI**. Your coding agent composes the camera, depth, focus and motion. Flute provides the renderer, scene library, playback and MP4 export. Your app keeps its components, providers and styles.
-
-Open source under the [MIT license](LICENSE). Runs locally, with your existing coding agent. No account or AI subscription connection is needed in Flute.
-
 ## Install into your app
 
 **React DOM 18.2+ or 19**, with **Node 22.12+** for the CLI. The renderer is independent of your router and build tool. Setup has automatic connections for Next.js App/Pages Router and standard Vite projects; other React hosts use the same portable wrapper without changing frameworks.
@@ -95,21 +89,3 @@ npm run dev
 
 The separate `local-project/` exercises installation with real scenes; it is not shipped in the package. The unconnected product opens with an honest empty scene list.
 
-Read [architecture](docs/architecture.md) for canonical code owners and [product](docs/product.md) for scope. The installed `flute guide` is the authoritative authoring reference. Build and boundary checks reject architectural drift.
-
-## Maintainer release
-
-All tests run locally. GitHub Actions only builds and publishes a new npm version; it does not run verification suites or upload artifacts.
-
-1. Update the package version with `npm version patch --no-git-tag-version`.
-2. Run `npm ci`, install Chromium and FFmpeg, then run `npm run verify:release` locally. This includes architecture, browser, installed-app, export and hardware checks. Logs remain in `.release/logs/`.
-3. Commit the verified version and lockfile, then push to `main`. The publishing workflow checks npm first. If that version already exists, it stops before installing or building. Otherwise it runs `npm run build:package` and publishes through OIDC. npm versions are immutable; changing source without a version bump does not update the public package.
-4. Run `npm run test:published` locally after publication to check the exact public version in a fresh installed app.
-
-The public source is [cybertronayush/insight](https://github.com/cybertronayush/insight), and the package is `@webprodigies/flute`. npm's trusted publisher uses GitHub owner `cybertronayush`, repository `insight`, workflow `publish.yml`, environment `npm`, with direct `npm publish` permission. The GitHub environment permits the `main` branch. Never commit npm tokens.
-
-Code-only and documentation-only pushes do not start a workflow. Package/lockfile or publishing-workflow changes can trigger the small version lookup. A failed release can be retried through Actions → Publish npm package → Run workflow on `main`; an existing npm version will safely skip. There is no automatic tag-based or pull-request test workflow.
-
-`verify:ci` remains a local alternative without hardware timing checks; `verify:release` retains the full hardware gate. GitHub does not enforce those local results, so the maintainer is responsible for running them before pushing a release version.
-
-For manual publication, run `npm run release:publish` locally from the clean committed candidate and complete npm's private authentication prompt. For source-only testing, `npm run release:local` builds a tarball in `.release/`; `npm run setup:local` installs it in the isolated local host.
